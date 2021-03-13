@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         setContent {
 
-            MyTheme(darkTheme = false) {
+            MyTheme() {
                 NavGraph(window)
             }
         }
