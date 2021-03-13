@@ -53,25 +53,25 @@ object MainDestinations {
 @Composable
 fun NavGraph(window: Window, startDestination: String = MainDestinations.WELCOME_SCREEN) {
     val navController = rememberNavController()
+    val isLight = MaterialTheme.colors.isLight
+    window.statusBarColor = if (isLight) MaterialTheme.colors.onSurface.toArgb() else MaterialTheme.colors.secondary.toArgb()
+
     val actions = remember(navController) { MainActions(navController) }
     NavHost(
         navController = navController,
         startDestination = startDestination
     ) {
         composable(MainDestinations.WELCOME_SCREEN) {
-            window.statusBarColor = MaterialTheme.colors.onBackground.toArgb()
             WelcomeScreen(
                 onLoginClick = actions.login,
             )
         }
         composable(MainDestinations.LOGIN_SCREEN) {
-            window.statusBarColor = MaterialTheme.colors.onBackground.toArgb()
             LoginScreen(
                 onLoginClick = actions.home,
             )
         }
         composable(MainDestinations.HOME_SCREEN) {
-            window.statusBarColor = MaterialTheme.colors.onBackground.toArgb()
             HomeScreen()
         }
     }

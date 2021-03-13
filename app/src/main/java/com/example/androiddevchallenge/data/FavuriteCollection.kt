@@ -37,7 +37,7 @@ data class FavoriteCollection(
 )
 
 val FavoriteCollectionData = listOf<FavoriteCollection>(
-    FavoriteCollection("Short Mantra", R.drawable.stress_manta),
+    FavoriteCollection("Short Mantra", R.drawable.short_mantra),
     FavoriteCollection("Stress and Anxiety", R.drawable.stress_manta),
     FavoriteCollection("Overwhelmed", R.drawable.overwhelmed),
     FavoriteCollection("Nature Meditation", R.drawable.nature_medicaation),

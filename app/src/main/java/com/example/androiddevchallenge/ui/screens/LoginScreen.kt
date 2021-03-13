@@ -66,7 +66,9 @@ import com.example.androiddevchallenge.R
 @Preview
 @Composable
 fun LoginScreen(onLoginClick: () -> Unit = {}) {
-
+    val isLight = MaterialTheme.colors.isLight
+    val backgroundImage =
+        painterResource(id = if (isLight) R.drawable.ic_light_login else R.drawable.ic_dark_login)
     Box(
         modifier = Modifier
             .background(color = MaterialTheme.colors.background)
@@ -75,7 +77,7 @@ fun LoginScreen(onLoginClick: () -> Unit = {}) {
     ) {
         Image(
 
-            painter = painterResource(id = R.drawable.ic_light_login), contentDescription = "",
+            painter = backgroundImage, contentDescription = "",
             Modifier
                 .fillMaxWidth()
                 .fillMaxHeight(),
@@ -157,6 +159,7 @@ fun LoginScreen(onLoginClick: () -> Unit = {}) {
                         append("Sign up")
                     }
                 },
+                color = MaterialTheme.colors.onBackground,
                 style = MaterialTheme.typography.body1,
                 modifier = Modifier
                     .paddingFromBaseline(top = 24.dp, bottom = 16.dp)

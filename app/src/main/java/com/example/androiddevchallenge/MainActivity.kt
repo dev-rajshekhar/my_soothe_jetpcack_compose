@@ -24,8 +24,10 @@ import com.example.androiddevchallenge.utils.NavGraph
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContent {
-            MyTheme() {
+
+            MyTheme(darkTheme = false) {
                 NavGraph(window)
             }
         }

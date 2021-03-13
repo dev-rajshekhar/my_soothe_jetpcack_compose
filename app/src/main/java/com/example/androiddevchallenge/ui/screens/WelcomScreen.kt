@@ -53,6 +53,12 @@ import com.example.androiddevchallenge.R
 
 @Composable
 fun WelcomeScreen(onLoginClick: () -> Unit = {}) {
+    val isLight = MaterialTheme.colors.isLight
+
+    val backgroundImage =
+        painterResource(id = if (isLight) R.drawable.ic_light_welcome else R.drawable.ic_dark_welcome)
+    val appLogo =
+        painterResource(id = if (isLight) R.drawable.ic_light_logo else R.drawable.ic_dark_logo)
     Box(
         modifier = Modifier
             .background(color = MaterialTheme.colors.background)
@@ -61,7 +67,7 @@ fun WelcomeScreen(onLoginClick: () -> Unit = {}) {
     ) {
         Image(
 
-            painter = painterResource(id = R.drawable.ic_light_welcome), contentDescription = "",
+            painter = backgroundImage, contentDescription = null,
             Modifier
                 .fillMaxWidth()
                 .fillMaxHeight(),
@@ -75,7 +81,7 @@ fun WelcomeScreen(onLoginClick: () -> Unit = {}) {
                 .fillMaxHeight()
         ) {
             Image(
-                painterResource(R.drawable.ic_light_logo),
+                appLogo,
                 contentDescription = null,
                 modifier = Modifier.padding(top = 48.dp),
             )
@@ -107,7 +113,7 @@ fun WelcomeScreen(onLoginClick: () -> Unit = {}) {
                     .height(72.dp),
                 onClick = { onLoginClick() }
             ) {
-                Text(text = "LOGIN ", style = MaterialTheme.typography.button)
+                Text(text = "LOG IN ", style = MaterialTheme.typography.button)
             }
         }
     }
